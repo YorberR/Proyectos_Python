@@ -1,2 +1,2 @@
 # ProyectosPython
-Una serie de ejercicios de pythos
+Una serie de ejercicios de python
