@@ -1,4 +1,6 @@
-#Juego de ahorcado, consiste en adivinar letras, que van conformando una palabra hasta poder adivinarla toda la palabra
+#Juego de ahorcado, consiste en adivinar letras, 
+#que van conformando una palabra hasta poder adivinar 
+#toda la palabra
 
 import random
 import os

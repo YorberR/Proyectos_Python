@@ -1,3 +1,7 @@
+#Juego de piedra, papel o tijera, consiste en elegir una de las 
+#3 opciones establecida mientras la coputadora eligira alguna opcion
+#aleatoria, la condicion para ganar es: piedra > tijera > papel > piedra
+
 import random
 import os
 import time
