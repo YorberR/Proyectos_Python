@@ -43,29 +43,37 @@ def crupiers(mallet):
         crupier_underscores = ["_ _ _"]
         crupier.append(crupier_underscores)
     return crupier
+        
+def mechanics(crupier, mallet):
+    crupier.pop()
+    passed = random.choice(mallet)
+    crupier.append(passed)
+    # for i in crupier:
+    #     int(i)
+    #     sum = sum + i
+    
 
-def options(user, mallet):
+def run():
+    mallet = deck_of_cards()
+    user = start(mallet)
+    crupier = crupiers(mallet)
     while True:
+        print("Estas son las cartas del crupier: ", crupier)
+        print("Estas son tus cartas: ", user)
         print("Elige la opcion que quieres hacer:",
           "1) Agarrar ota carta",
           "2) Quedarse")
         option = int(input("la opcion elegida es: "))
         
         if (option == 1):
-            pass
+            passed = random.choice(mallet)
+            user.append(passed)
         elif (option==2):
-            break
+            mechanics(crupier, mallet)
         else:
             print("Esa no es una opcion")
 
 
-def run():
-    mallet = deck_of_cards()
-    user = start(mallet)
-    crupier = crupiers(mallet)
-    print("Estas son las cartas del crupier: ", crupier)
-    print("Estas son tus cartas: ", user)
-    options(user, mallet)
 
 
 if __name__ == "__main__":
