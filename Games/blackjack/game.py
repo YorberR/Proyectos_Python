@@ -45,13 +45,97 @@ def crupiers(mallet):
     return crupier
         
 def mechanics(crupier, mallet):
+    cuenta = 0
     crupier.pop()
     passed = random.choice(mallet)
     crupier.append(passed)
-    # for i in crupier:
-    #     int(i)
-    #     sum = sum + i
-    
+    for i in crupier:
+        card = i
+        entero = card[0]
+        if entero == 'K':
+            cuenta += 10
+            return cuenta
+        elif entero == 'Q':
+            cuenta += 10
+            return cuenta
+        elif entero == 'J':
+            cuenta += 10
+            return cuenta
+        elif entero == '1':
+            cuenta += 10
+            return cuenta
+        elif entero == 'A':
+            cuenta += 11
+            return cuenta
+        else:
+            number = int(entero)
+            cuenta += number
+            return cuenta
+    #esta parte no funciona
+    if cuenta <= 16:
+        passed = random.choice(mallet)
+        crupier.append(passed)
+        for i in crupier:
+            card2 = i
+            entero2 = card2[0]
+            if entero2 == 'K':
+                cuenta = cuenta + 10
+                return cuenta
+            elif entero2 == 'Q':
+                cuenta = cuenta + 10
+                return cuenta
+            elif entero2 == 'J':
+                cuenta = cuenta + 10
+                return cuenta
+            elif entero2 == '1':
+                cuenta = cuenta + 10
+                return cuenta
+            elif entero2 == 'A':
+                cuenta = cuenta + 11
+                return cuenta
+            else:
+                number = int(entero2)
+                cuenta = cuenta + number
+                return cuenta
+    elif cuenta >= 17:
+        print('El crupier hizo: {}'.format(cuenta))
+        return cuenta
+
+
+def score(user):
+    cuenta = 0
+    for i in user:
+        card = i
+        entero = card[0]
+        if entero == 'K':
+            cuenta += 10
+        elif entero == 'Q':
+            cuenta += 10
+        elif entero == 'J':
+            cuenta += 10
+        elif entero == '1':
+            cuenta += 10
+        elif entero == 'A':
+            cuenta += 11
+        else:
+            number = int(entero)
+            cuenta += number
+    return cuenta
+        
+
+
+def ganador(user, cuenta):
+    if user == cuenta:
+        print('Empate')
+    elif user == 21 and cuenta <= 20:
+        print('Hiciste blackjack, haz ganado')
+    elif user > cuenta and user <= 21:
+        print('Ganaste')
+    elif user < cuenta and cuenta <= 21:
+        print('perdiste')
+
+
+
 
 def run():
     mallet = deck_of_cards()
@@ -66,10 +150,37 @@ def run():
         option = int(input("la opcion elegida es: "))
         
         if (option == 1):
+            os.system ("clear") 
             passed = random.choice(mallet)
             user.append(passed)
+            cuenta = score(user)
+            if cuenta >= 22:
+                mechanics(crupier, mallet)
+                print("*" * 50)
+                print("Estas son las cartas del crupier: ", crupier)
+                print("Estas son tus cartas: ", user)
+                print('Tienes: {}, Te pasaste de 21 perdiste'.format(cuenta))
+                print("*" * 50)
+                break
+            elif cuenta == 21:
+                score(user)
+                mechanics(crupier, mallet)
+                print("*" * 50)
+                print("Estas son las cartas del crupier: ", crupier)
+                print("Estas son tus cartas: ", user)
+                print('Hiciste blackjack, haz ganado')
+                print("*" * 50)
+                break
+            else:
+                print("*" * 50)
+                print('Tienes: {}'.format(cuenta))
+                print("*" * 50)
         elif (option==2):
             mechanics(crupier, mallet)
+            data = mechanics(crupier, mallet)
+            print(data)
+            # ganador(user, cuenta)
+            # break
         else:
             print("Esa no es una opcion")
 
