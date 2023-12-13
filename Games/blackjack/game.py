@@ -61,8 +61,8 @@ def run():
         print("Estas son las cartas del crupier: ", crupier)
         print("Estas son tus cartas: ", user)
         print("Elige la opcion que quieres hacer:",
-          "1) Agarrar ota carta",
-          "2) Quedarse")
+        "1) Agarrar ota carta",
+        "2) Quedarse")
         option = int(input("la opcion elegida es: "))
         
         if (option == 1):
